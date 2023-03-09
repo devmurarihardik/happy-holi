@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="./buttons.css" rel="stylesheet"/>
+    <title>Button Test</title>
+</head>
+<body>
+    <h2>HAPPY HOLI</h2>
+    <script>
+        const images = [
+            'url("clr01.png")',
+            'url("clr02.png")',
+            'url("clr03.png")',
+            'url("clr04.png")',
+            'url("clr05.png")',
+            'url("clr06.png")'
+        ]
+        let body = document.querySelector('body');
+        body.onclick = function (e) {
+            let x = e.pageX - e.target.offsetLeft;
+            let y = e.pageY - e.target.offsetLeft;
+
+            let splash = document.createElement('span')
+            splash.style.left = x + 'px';
+            splash.style.top = y + 'px';
+            this.appendChild(splash)
+
+            let bg = images[Math.floor(Math.random() * images.length)];
+            splash.style.backgroundImage = bg;
+            setTimeout(() => {
+                splash.remove()
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
